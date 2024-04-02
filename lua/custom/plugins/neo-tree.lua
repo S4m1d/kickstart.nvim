@@ -8,6 +8,13 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   config = function()
+    require('neo-tree').setup {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        },
+      },
+    }
     vim.keymap.set('n', '<leader>nt', ':Neotree<cr>', { desc = '[N]eo [T]ree (opens neotree)' })
     vim.keymap.set('n', '<leader>nq', ':Neotree action=close<cr>', { desc = '[N]eo Tree quit (closes neotree)' })
   end,
