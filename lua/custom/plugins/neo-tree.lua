@@ -16,6 +16,6 @@ return {
       },
     }
     vim.keymap.set('n', '<leader>nt', ':Neotree<cr>', { desc = '[N]eo [T]ree (opens neotree)' })
-    vim.keymap.set('n', '<leader>nq', ':Neotree action=close<cr>', { desc = '[N]eo Tree quit (closes neotree)' })
+    vim.keymap.set('n', '<leader>nq', ':Neotree action=close<cr>', { desc = '[N]eo Tree [Q]uit (closes neotree)' })
   end,
 }
