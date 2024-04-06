@@ -23,12 +23,11 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
-    'mason-org/mason-registry',
+    --'mason-org/mason-registry',
   },
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
-    local masonRegistry = require 'mason-registry'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -54,7 +53,7 @@ return {
     --TODO: decompose and prettify
 
     local debugConfigurator = require 'kickstart.plugins.debug-configurator'
-    masonRegistry.refresh()
+    --masonRegistry.refresh()
     debugConfigurator.configure_cpp()
 
     vim.keymap.set('n', '<leader>dr', dap.continue, { desc = 'Debug: Start/Continue ([R]esume)' })
