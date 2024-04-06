@@ -23,10 +23,12 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mason-org/mason-registry',
   },
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local masonRegistry = require 'mason-registry'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -49,9 +51,11 @@ return {
       automatic_installation = false,
     }
 
+    masonRegistry.refresh()
+
     --TODO: decompose and prettify
 
-    local codelldb = require('mason-registry').get_package 'codelldb'
+    local codelldb = masonRegistry.get_package 'codelldb'
 
     dap.adapters.codelldb = {
       type = 'server',
@@ -75,7 +79,6 @@ return {
       },
     }
 
-    -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<leader>dr', dap.continue, { desc = 'Debug: Start/Continue ([R]esume)' })
     vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Debug: Step [I]nto' })
     vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Debug: Step [O]ver' })
