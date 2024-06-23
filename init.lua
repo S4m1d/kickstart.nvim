@@ -354,7 +354,17 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            -- enables hidden files in search result except files under .git directory
+            find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+          },
+          live_grep = {
+            -- this passes arguments too rg (ripgrep util)
+            -- it enables search in hidden files and excludes files from .git directory by glob expression
+            additional_args = { '--hidden', '--glob', '!**/.git/*' },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
