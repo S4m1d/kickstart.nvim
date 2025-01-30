@@ -1,5 +1,5 @@
 return {
-  'FabijanZulji/blame.nvim',
+  'FabijanZulj/blame.nvim',
   lazy = false,
   config = function()
     require('blame').setup {}
