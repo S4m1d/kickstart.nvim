@@ -549,6 +549,7 @@ require('lazy').setup({
         clangd = {},
         --jdtls = {},
         gopls = {},
+        zls = {},
         -- gopls = {},
         -- pyright = {},
         -- rust lsp is now configured in rustaceanvim plugin
